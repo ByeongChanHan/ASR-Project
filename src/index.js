@@ -12,7 +12,11 @@ root.render(
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route exact path="/" element={<App />} />
-        <Route exact path="/about" element={<Manager />} />
+        <Route
+          exact
+          path="https://byeongchanhan.github.io/about"
+          element={<Manager />}
+        />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

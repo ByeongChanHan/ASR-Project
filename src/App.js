@@ -128,14 +128,16 @@ class App extends React.Component {
       },
       cors: "no-cors",
     };
-    return fetch("/home", ClickSave).then((res) => {
-      let _dataSet = res.json();
-      return _dataSet;
-    });
+    return fetch("https://byeongchanhan.github.io/home", ClickSave).then(
+      (res) => {
+        let _dataSet = res.json();
+        return _dataSet;
+      }
+    );
   };
 
   StartCompare = () => {
-    window.location.href = "/about";
+    window.location.href = "https://byeongchanhan.github.io/about";
     //   const ClickSave = {
     //     method: "GET",
     //     headers: {

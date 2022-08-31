@@ -19,7 +19,7 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-app.get("/home", (req, res) => {
+app.get("https://byeongchanhan.github.io/home", (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   connection.query("SELECT * FROM reference", (err, rows, fields) => {
     if (err) throw err;
@@ -45,7 +45,7 @@ app.get("/home", (req, res) => {
   // );
 });
 
-app.get("/abouts", (req, res) => {
+app.get("https://byeongchanhan.github.io/abouts", (req, res) => {
   console.log("about page");
   res.send({
     about: true,

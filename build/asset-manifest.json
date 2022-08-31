@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ASR-Project/static/css/main.993e105e.css",
-    "main.js": "/ASR-Project/static/js/main.cd94b783.js",
+    "main.js": "/ASR-Project/static/js/main.a5fb965b.js",
     "static/js/787.633816a4.chunk.js": "/ASR-Project/static/js/787.633816a4.chunk.js",
     "index.html": "/ASR-Project/index.html",
     "main.993e105e.css.map": "/ASR-Project/static/css/main.993e105e.css.map",
-    "main.cd94b783.js.map": "/ASR-Project/static/js/main.cd94b783.js.map",
+    "main.a5fb965b.js.map": "/ASR-Project/static/js/main.a5fb965b.js.map",
     "787.633816a4.chunk.js.map": "/ASR-Project/static/js/787.633816a4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.993e105e.css",
-    "static/js/main.cd94b783.js"
+    "static/js/main.a5fb965b.js"
   ]
 }
