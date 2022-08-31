@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+select {
+  color: #666;
+  border-radius: 4px;
+  width: 150px;
+  outline: 0 none;
+  font-size: 16px;
+  margin: 0 1% 0 1%;
+}
+
+select option {
+  color: #666;
+}
+
+.App h1 {
+  margin: 2%;
+}
+
+.nav-upload-btn {
+  background-color: rgb(40, 94, 254);
+  color: white;
+  padding: 0.5rem;
+  font-family: sans-serif;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  border: 0;
+}
+
+.tb {
+  width: 96%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 0 2% 10px 2%;
+}
+.tb tr {
+  height: 50px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+.tb th,
+.tb td {
+  padding: 7px;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border: 1px solid gray;
+}
+
+#btn_compare {
+  font-family: "Noto Sans KR", sans-serif;
+  width: 13%;
+  height: 80px;
+  background-color: rgb(192, 0, 0);
+  color: white;
+  border: 0;
+  font-size: 23px;
+  display: inline-block;
+  margin: 0 1% 0 0;
+}
+
+#recognition_rate {
+  width: 86%;
+}
+
+.compare_section,
+.cb_section {
+  display: flex;
+  margin: 0 2% 0 2%;
+  justify-content: flex-end;
+}
+
+.cb_section {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.cb_section p {
+  font-family: "Noto Sans KR", sans-serif;
+  line-height: 35px;
+  margin: 0;
+}
+
+.reference-th {
+  color: white;
+  background-color: rgb(32, 55, 100);
+}
+
+.response-th {
+  color: white;
+  background-color: rgb(55, 86, 35);
+}
+.analysis-th {
+  color: white;
+  background-color: rgb(131, 60, 12);
+}
+
+.reference-tr {
+  color: white;
+  background-color: rgb(48, 84, 150);
+}
+
+.response-tr {
+  color: white;
+  background-color: rgb(84, 130, 53);
+}
+.analysis-tr {
+  color: white;
+  background-color: rgb(198, 89, 17);
+}
+
+/* 결과 텍스트 */
+#recognition_rate {
+  font-family: "Noto Sans KR", sans-serif;
+  text-align: center;
+  font-weight: bold;
+  font-size: 23px;
+}
