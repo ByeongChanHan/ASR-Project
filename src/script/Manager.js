@@ -15,9 +15,7 @@ class Manager extends React.Component {
       },
       cors: "no-cors",
     };
-    fetch("https://byeongchanhan.github.io/abouts", ClickSave).then((res) =>
-      console.log(res.json())
-    );
+    fetch("/abouts", ClickSave).then((res) => console.log(res.json()));
   };
 }
 export default Manager;

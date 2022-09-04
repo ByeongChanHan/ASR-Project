@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "./script/Modal";
 import "./css/style.css";
+import Paging from "./script/Paging";
 
 class App extends React.Component {
   componentDidMount() {
@@ -18,7 +19,7 @@ class App extends React.Component {
         <div>
           <h1>ASR Performance Test Page</h1>
         </div>
-        <div className="cb_section">
+        <div className="cb-section">
           <p>지역 : </p>
           <select defaultValue={""}>
             <option value="" disabled>
@@ -38,6 +39,9 @@ class App extends React.Component {
           {/* <input type="text" disabled></input> */}
           <button className="nav-upload-btn" onClick={this.FileUpload}>
             파일 업로드
+          </button>
+          <button id="login-btn" onClick={this.goLoginPage}>
+            로그인
           </button>
         </div>
         <Modal tabledata={this.SetTableData}></Modal>
@@ -73,12 +77,13 @@ class App extends React.Component {
             {this.state.prompts ? this.renderList() : ""}
           </tbody>
         </table>
-        <div className="compare_section">
-          <button id="btn_compare" onClick={this.StartCompare}>
+        {this.state.maxitems ? this.setPaging() : ""}
+        <div className="compare-section">
+          <button id="btn-compare" onClick={this.StartCompare}>
             START
           </button>
           <textarea
-            id="recognition_rate"
+            id="recognition-rate"
             cols="50"
             disabled
             placeholder="< Log Screen >"
@@ -87,6 +92,24 @@ class App extends React.Component {
       </div>
     );
   }
+  setPaging = () => {
+    return <Paging maxitems={this.state.maxitems} />;
+  };
+
+  // 버튼 텍스트가 로그아웃 일때는 logout 파라미터를 보내서 호출하고
+  // 텍스트가 로그인일때는 /login path 이동
+  goLoginPage = async () => {
+    let loginbtntext = document.querySelector("#login-btn").innerHTML;
+    if (loginbtntext === "로그아웃") {
+      const logoutCall = await this.callData("logout");
+      console.log(logoutCall);
+      if (logoutCall === undefined) {
+        window.location.reload();
+      }
+    } else {
+      window.location.href = "/login";
+    }
+  };
 
   SetTableData = (data) => {
     // 파일 선택할때 취소 누르면 발생, return 해준다
@@ -104,7 +127,13 @@ class App extends React.Component {
   };
 
   getData = async () => {
-    const writeData = await this.callData();
+    const writeData = await this.callData("home");
+    //로그인이 안되어있을경우
+    if (writeData.islogin === undefined) {
+      document.querySelector("#login-btn").innerHTML = "로그아웃";
+    } else {
+      document.querySelector("#login-btn").innerHTML = "로그인";
+    }
     let [promptData, domainData, intentData, slotData] = [[], [], [], []];
     for (let idx = 0; idx < writeData.length; idx++) {
       promptData.push(writeData[idx].prompt);
@@ -113,6 +142,7 @@ class App extends React.Component {
       slotData.push(writeData[idx].slot);
     }
     this.setState({
+      maxitems: writeData.length,
       prompts: promptData,
       domain: domainData,
       intent: intentData,
@@ -120,7 +150,8 @@ class App extends React.Component {
     });
   };
 
-  callData = () => {
+  // 매개변수로 param을 받고 get 호출한다.
+  callData = (param) => {
     const ClickSave = {
       method: "GET",
       headers: {
@@ -128,16 +159,24 @@ class App extends React.Component {
       },
       cors: "no-cors",
     };
-    return fetch("https://byeongchanhan.github.io/home", ClickSave).then(
-      (res) => {
-        let _dataSet = res.json();
-        return _dataSet;
-      }
+    return (
+      fetch(`/${param}`, ClickSave)
+        .then((res) => {
+          if (!res.redirected) {
+            let dataSet = res.json();
+            return dataSet;
+          }
+        })
+        //로그인/로그아웃을 계속 반복하다보면 연결이 끊어질때가 있는데 이때 다시 재귀함수 호출
+        .catch((error) => {
+          // this.callData(param);
+        })
     );
   };
 
+  //start 버튼 클릭할때 호출하는 함수(수정 예정)
   StartCompare = () => {
-    window.location.href = "https://byeongchanhan.github.io/about";
+    window.location.href = "/about";
     //   const ClickSave = {
     //     method: "GET",
     //     headers: {
@@ -149,6 +188,7 @@ class App extends React.Component {
     //     .then((res) => res.text())
     //     .then((objectData) => console.log(txt));
   };
+  // 조회 데이터가 있을때 map함수로 돌면서 WriteList 클래스를 보여준다
   renderList = () => {
     const renderingList = this.state.prompts.map((listarr, index) => {
       return (

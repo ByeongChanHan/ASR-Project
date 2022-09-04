@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/ASR-Project/static/css/main.993e105e.css",
-    "main.js": "/ASR-Project/static/js/main.a5fb965b.js",
-    "static/js/787.633816a4.chunk.js": "/ASR-Project/static/js/787.633816a4.chunk.js",
-    "index.html": "/ASR-Project/index.html",
-    "main.993e105e.css.map": "/ASR-Project/static/css/main.993e105e.css.map",
-    "main.a5fb965b.js.map": "/ASR-Project/static/js/main.a5fb965b.js.map",
-    "787.633816a4.chunk.js.map": "/ASR-Project/static/js/787.633816a4.chunk.js.map"
+    "main.css": "/static/css/main.55f12724.css",
+    "main.js": "/static/js/main.84644591.js",
+    "static/js/787.633816a4.chunk.js": "/static/js/787.633816a4.chunk.js",
+    "index.html": "/index.html",
+    "main.55f12724.css.map": "/static/css/main.55f12724.css.map",
+    "main.84644591.js.map": "/static/js/main.84644591.js.map",
+    "787.633816a4.chunk.js.map": "/static/js/787.633816a4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.993e105e.css",
-    "static/js/main.a5fb965b.js"
+    "static/css/main.55f12724.css",
+    "static/js/main.84644591.js"
   ]
 }

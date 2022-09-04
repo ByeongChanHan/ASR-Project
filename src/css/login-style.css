@@ -1,0 +1,42 @@
+.LoginSection {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  border: 1px solid #ddd;
+  background-color: rgb(237, 237, 237);
+  padding: 15px;
+  height: 350px;
+  overflow: hidden;
+  margin: 200px auto;
+  border-radius: 11px;
+}
+.LoginSection h1 {
+  font-size: 35px;
+  margin: 0 0 16px 0;
+}
+.LoginField {
+  display: inline-block;
+  width: 85%;
+  height: 40px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 0;
+  color: rgb(125, 128, 129);
+  padding: 0 20px;
+  margin-bottom: 16px;
+}
+.LoginField:focus {
+  background-color: white;
+  outline: none;
+}
+
+.submit-btn {
+  width: 100%;
+  height: 40px;
+  color: rgb(125, 128, 129);
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-size: 16px;
+}
